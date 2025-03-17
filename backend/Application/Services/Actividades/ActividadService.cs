@@ -8,7 +8,7 @@ using Application.DTOs.Entidades;
 using Application.Interfaces.Actividades;
 using Dominio.AggregateRoots.Actividades;
 
-namespace Aplicacion.Servicios.Actividades
+namespace Application.Services.Actividades
 {
     public class ActividadService : IActividadService
     {
