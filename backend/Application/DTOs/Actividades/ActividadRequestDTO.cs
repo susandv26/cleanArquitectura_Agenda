@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Actividades
 {
-    class ActividadRequestDTO
+   public  class ActividadRequestDTO
     {
         public string Descripcion { get; set; } = string.Empty;
         public DateTime FechaHoraInicio { get; set; }
