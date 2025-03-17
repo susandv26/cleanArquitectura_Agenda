@@ -6,3 +6,4 @@ backend/Aplication/obj
 backend/*/bin
 backend/*/obj
 backend/API/.env
+backend/Infraestructure/Migrations/*

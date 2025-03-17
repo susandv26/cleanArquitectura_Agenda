@@ -11,7 +11,7 @@ namespace Application.Interfaces.Actividades
     public interface IActividadService
     {
         Task<IEnumerable<ActividadResponseDTO>> GetAllAsync();
-        Task<ActividadResponseDTO> GetByIdAsync(int id);
+        Task<ActividadResponseDTO?> GetByIdAsync(int id);
         Task<ActividadResponseDTO> CreateAsync(ActividadRequestDTO dto);
         Task<bool> UpdateAsync(int id, ActividadRequestDTO dto);
         Task<bool> DeleteAsync(int id);
