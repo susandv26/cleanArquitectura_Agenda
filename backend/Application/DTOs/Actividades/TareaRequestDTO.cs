@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Actividades
 {
-    class TareaRequestDTO
+   public class TareaRequestDTO
     {
         public string Descripcion { get; set; } = string.Empty;
         public bool Finalizado { get; set; }
         public DateTime FechaHoraInicio { get; set; }
         public DateTime? FechaHoraFinal { get; set; }
+
     }
 }
