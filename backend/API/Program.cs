@@ -1,7 +1,10 @@
 
 using API.Configuration;
+using Application.Services.Entidades;
 using Infraestructure.Persistence;
+using Infraestructure.Repositorio.Entidades;
 using Microsoft.EntityFrameworkCore;
+using Application.Interfaces.Entidades;
 
 
 namespace API
@@ -27,7 +30,12 @@ namespace API
             //liena extra 2
             builder.Services.AddDbContext<BackendDBContext>(options => options.UseSqlServer(dbConfig.ConnectionString));
 
+            //liena extra 3
+            builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
+            //liena extra 4
+            builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
