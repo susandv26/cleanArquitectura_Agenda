@@ -8,7 +8,8 @@ namespace Application.DTOs.Entidades
 {
     public class UsuarioRequestDTO
     {
-        public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
+        public string Correoelectronico { get; set; }
+        public string Password { get; set; }
     }
 }
