@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Actividades
 {
-    class TareaResponseDTO
+    public class TareaResponseDTO
     {
         public int Id { get; set; }
         public string Descripcion { get; set; } = string.Empty;

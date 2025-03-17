@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Entidades
 {
-    class TipoRequestDTOcs
+    public class TipoRequestDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string Nombre { get; set; } = string.Empty;
     }
 }
