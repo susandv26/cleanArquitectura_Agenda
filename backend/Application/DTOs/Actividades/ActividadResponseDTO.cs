@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,10 @@ namespace Application.DTOs.Actividades
         public int UsuarioId { get; set; }
         public int TipoId { get; set; }
         public List<TareaResponseDTO> Tareas { get; set; } = new();
-        public UsuarioResponseDTO? Usuario { get; set; }
+        public UsuarioResponseDTO? Usuario { get; set; }s
+        public TipoResponseDTO? Tipo { get; set; }
+
         
+
     }
 }
