@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.DTOs.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,6 @@ namespace Application.DTOs.Actividades
         public int TipoId { get; set; }
         public List<TareaResponseDTO> Tareas { get; set; } = new();
         public UsuarioResponseDTO? Usuario { get; set; }
-        public CatalogResponseDTO? Tipo { get; set; }
+        public TipoResponseDTO? Tipo { get; set; }
     }
 }
