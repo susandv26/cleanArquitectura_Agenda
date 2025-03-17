@@ -19,7 +19,7 @@ namespace Application.DTOs.Actividades
         public int UsuarioId { get; set; }
         public int TipoId { get; set; }
         public List<TareaResponseDTO> Tareas { get; set; } = new();
-        public UsuarioResponseDTO? Usuario { get; set; }s
+        public UsuarioResponseDTO? Usuario { get; set; }
         public TipoResponseDTO? Tipo { get; set; }
 
         
