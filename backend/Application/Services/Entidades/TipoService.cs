@@ -9,7 +9,7 @@ using Dominio.Entities;
 
 namespace Application.Services.Entidades
 {
-    class TipoService : ITipoService
+    public class TipoService : ITipoService
     {
         private readonly ITipoRepository _tipoRepository;
 
