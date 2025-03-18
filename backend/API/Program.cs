@@ -5,6 +5,9 @@ using Infraestructure.Persistence;
 using Infraestructure.Repositorio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Application.Interfaces.Entidades;
+using Application.Interfaces.Actividades;
+using Infraestructure.Repositorio.Actividades;
+using Application.Services.Actividades;
 
 
 namespace API
@@ -33,6 +36,24 @@ namespace API
             //liena extra 3
             builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+            //liena extra 3.2
+            builder.Services.AddScoped<ITipoRepository, TipoRepository>();
+            builder.Services.AddScoped<ITipoService, TipoService>();
+
+           // builder.Services.AddScoped<ITipoRepository, TipoRepository>();
+           // builder.Services.AddScoped<ITipoService, TipoService>();
+
+           // builder.Services.AddScoped<ITareaRepository, TareaRepository>();
+           // builder.Services.AddScoped<ITareaService, TareaService>();
+
+            builder.Services.AddScoped<IActividadRepository, ActividadRepository>();
+            builder.Services.AddScoped<IActividadService, ActividadService>();
+
+            
+
+
+
+
 
             //liena extra 4
             builder.Services.AddControllers();
