@@ -3,7 +3,6 @@ using Infraestructure.Persistence;
 using Application.Interfaces.Entidades;
 using Microsoft.EntityFrameworkCore;
 
-using Application.Interfaces.Actividades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
