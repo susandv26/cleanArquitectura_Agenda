@@ -1,10 +1,7 @@
 
 using API.Configuration;
-using Application.Services.Entidades;
 using Infraestructure.Persistence;
-using Infraestructure.Repositorio.Entidades;
 using Microsoft.EntityFrameworkCore;
-using Application.Interfaces.Entidades;
 using Infraestructure;
 
 
@@ -29,8 +26,7 @@ namespace API
             builder.Services.AddDbContext<BackendDBContext>(options => options.UseSqlServer(dbConfig.ConnectionString));
 
             //liena extra 3
-            builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-            builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+            
             //liena extra 3.2
 
            builder.Services.AddInfrastructure();
