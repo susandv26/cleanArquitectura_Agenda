@@ -3,6 +3,10 @@ using API.Configuration;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Infraestructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
 
 
 
@@ -13,6 +17,23 @@ namespace API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configurar autenticación JWT
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                        ValidAudience = builder.Configuration["Jwt:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(key)
+                    };
+                });
 
 
             // Add services to the container.
@@ -34,7 +55,38 @@ namespace API
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            //ya estaba, solo se modifica dentro de los parentesis
+            builder.Services.AddSwaggerGen(options =>
+            {
+                // Agregar definición de seguridad
+                // se corrige Type = SecuritySchemeType.ApiKey por Type = SecuritySchemeType.Http
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http, //el Http 
+                    Scheme = "Bearer",  // Esto es importante para JWT
+                    BearerFormat = "JWT", // Formato de JWT
+                    In = ParameterLocation.Header,
+                    Description = "Por favor ingresa tu token JWT"
+                });
+
+                // Agregar requisitos de seguridad global
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer" // Este nombre debe coincidir con el de la definición
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+            });
 
             var app = builder.Build();
 
@@ -44,6 +96,8 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseAuthentication(); // línea correspondiente al JWT
 
             app.UseAuthorization();
 
