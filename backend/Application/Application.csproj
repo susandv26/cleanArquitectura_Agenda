@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DTOs\Entidades\" />
+    <Folder Include="Interfaces\Entidades\" />
     <Folder Include="Services\Entidades\" />
   </ItemGroup>
 
