@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Interfaces.Entidades.AreaTrabajoInterfaces;
+using Application.Services.Entidades;
+using Infraestructure.Repositorio.Entidades;
+using Microsoft.Extensions.DependencyInjection;
 namespace Infraestructure
 {
 
@@ -6,7 +9,10 @@ namespace Infraestructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-           
+
+            //los services.AddScoped de AreaTrabajo
+            services.AddScoped<IAreaTrabajoRepository, AreaTrabajoRepository>();
+            services.AddScoped<IAreaTrabajoService, AreaTrabajoService>();
 
             return services;
         }
