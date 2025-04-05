@@ -20,7 +20,7 @@ namespace API.Configuration
 
             string dbServer = configuration["DB_SERVER"] ?? "localhost";
             string dbPort = configuration["DB_PORT"] ?? "1433";
-            string dbName = configuration["DB_NAME"] ?? "Bd_Agenda";
+            string dbName = configuration["DB_NAME"] ?? "AirBnbSolution2";
             string dbUser= configuration["DB_USER"] ?? "sa";
             string dbPassword = configuration["DB_PASSWORD"] ?? "123";
 
